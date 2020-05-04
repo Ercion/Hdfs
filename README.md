@@ -18,7 +18,7 @@ hadoop fs -ls /
 
 hadoop fs -ls
 
-hadoop fs -ls /user/hirwuser150430
+hadoop fs -ls /user/cloudera
 
 ### CREATE A DIRECTORY IN HDFS ###
 
@@ -26,11 +26,11 @@ hadoop fs -mkdir hadoop-test1
 
 ### COPY FROM LOCAL FS TO HDFS ###
 
-hadoop fs -copyFromLocal  /hirw-starterkit/hdfs/commands/dwp-payments-april10.csv hadoop-test1
+hadoop fs -copyFromLocal  /my_document/hdfs/commands/geologistics.csv hadoop-test1
 
 ### COPY TO HDFS TO LOCAL FS ###
 
-hadoop fs -copyToLocal hadoop-test1/dwp-payments-april10.csv .
+hadoop fs -copyToLocal hadoop-test1/geologistics.csv .
 
 hadoop fs -ls hadoop-test1
 
@@ -42,11 +42,11 @@ hadoop fs -mkdir hadoop-test3
 
 ### COPY A FILE FROM ONE FOLDER TO ANOTHER ###
 
-hadoop fs -cp hadoop-test1/dwp-payments-april10.csv hadoop-test2
+hadoop fs -cp hadoop-test1/geologistics.csv hadoop-test2
 
 ### MOVE A FILE FROM ONE FOLDER TO ANOTHER ###
 
-hadoop fs -mv hadoop-test1/dwp-payments-april10.csv hadoop-test3
+hadoop fs -mv hadoop-test1/geologistics.csv hadoop-test3
 
 ### CHECK REPLICATION ###
 
@@ -54,7 +54,7 @@ hadoop fs -ls hadoop-test3
 
 ### CHANGE OR SET REPLICATION FACTOR ###
 
-hadoop fs -Ddfs.replication=2 -cp hadoop-test2/dwp-payments-april10.csv hadoop-test2/test_with_rep2.csv
+hadoop fs -Ddfs.replication=2 -cp hadoop-test2/geologistics.csv hadoop-test2/test_with_rep2.csv
 
 hadoop fs -ls hadoop-test2
 
@@ -66,11 +66,11 @@ hadoop fs -chmod 777 hadoop-test2/test_with_rep2.csv
 
 ### FILE SYSTEM CHECK - REQUIRES ADMIN PREVILEGES ###
 
-sudo -u hdfs hdfs fsck /user/hirwuser150430/hadoop-test2 -files -blocks -locations 
+sudo -u hdfs hdfs fsck /user/cloudera/hadoop-test2 -files -blocks -locations 
 
-sudo -u hdfs hdfs fsck /user/hirwuser150430/hadoop-test3 -files -blocks -locations 
+sudo -u hdfs hdfs fsck /user/cloudera/hadoop-test3 -files -blocks -locations 
 
-sudo -u hdfs hdfs fsck /user/ubuntu/input/yelp/yelp_academic_dataset_review.json -files -blocks -locations 
+sudo -u hdfs hdfs fsck /user/cloudera/hadoop-test2/test_with_rep2.csv -files -blocks -locations 
 
 vi /etc/hadoop/conf/hdfs-site.xml
 
@@ -78,7 +78,7 @@ vi /etc/hadoop/conf/hdfs-site.xml
 
 ### DELETE DIR/FILES IN HDFS ###
 
-hadoop fs -rm hadoop-test2/test_with_rep5.csv
+hadoop fs -rm hadoop-test2/test_with_rep2.csv
 
 hadoop fs -rm -r hadoop-test1
 hadoop fs -rm -r hadoop-test2
