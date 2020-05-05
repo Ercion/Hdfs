@@ -66,6 +66,8 @@ hadoop fs -chmod 777 hadoop-test2/test_with_rep2.csv
 
 sudo -u hdfs hadoop fs -chmod 777 /user/cloudera/test_with_rep2.csv
 
+hdfs dfs -cp /tmp/sample.txt /data1
+
 ### FILE SYSTEM CHECK - REQUIRES ADMIN PREVILEGES ###
 
 sudo -u hdfs hdfs fsck /user/cloudera/hadoop-test2 -files -blocks -locations 
